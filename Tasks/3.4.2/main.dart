@@ -18,23 +18,20 @@ void main(){
   }
 
   //Aufgabe 2
-  bool isLoggedIn = true;
+  bool isLoggedIn = false;
   bool isBanned = false;
   bool isSubscripted = true;
-  int age = 18;
+  int age = 19;
   
   if(!isLoggedIn){
     print("Bitte logge dich ein"); 
   }
-  
-  if(isBanned == true){
+  if(isBanned){
     print("Dein Account wurde gesperrt");
   }
-  
   if(!isSubscripted){
     print("Bitte aboniere");
   }
-  
   if(age < 18){
     print("Du bist zu jung");
   }
