@@ -36,4 +36,12 @@ void main(){
   Durchschnittstemperatur: $avgTemp
   Niederschlagsmenge: $avgRain 
   Windgeschwindigkeit: $avgWind''');
+  
+  //Aufgabe 1 Bonus
+  double? x = weatherData[2]['temp'] ?? weatherData[0]['wind'] ?? 
+    ((4.5 >= (weatherData[1]['temp'] ?? 0)) ? 
+     weatherData[1]['temp'] : weatherData[1]['wind']);
+  
+  print(x);
+ 
 }
