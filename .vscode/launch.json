@@ -9,7 +9,7 @@
             "name": "Dart: Run all Tests",
             "type": "dart",
             "request": "launch",
-            "program": "/Users/alextoth15/projects/Batch10Tasks/3.4.2"
+            "program": "bin/main.dart"
         },
         {
             "name": "Dart & Flutter",
