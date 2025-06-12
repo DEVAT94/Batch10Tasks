@@ -1,6 +1,7 @@
 enum Weekday {monday,tuesday,wednesday,thursday,friday,saturday,sunday}
 
 void main(){
+  //TEEEEEST .ignore
 
   //Aufgabe 1
   Weekday? weekday;
