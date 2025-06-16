@@ -21,7 +21,7 @@ void main(){
   bool isLoggedIn = false;
   bool isBanned = false;
   bool isSubscripted = true;
-  int age = 19;
+  int age2 = 19;
   
   if(!isLoggedIn){
     print("Bitte logge dich ein"); 
@@ -32,7 +32,7 @@ void main(){
   if(!isSubscripted){
     print("Bitte aboniere");
   }
-  if(age < 18){
+  if(age2 < 18){
     print("Du bist zu jung");
   }
   else{
