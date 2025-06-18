@@ -1,5 +1,5 @@
 void main(){
-  
+
 print('Aufgabe 1');
 
  //Aufgabe 1
