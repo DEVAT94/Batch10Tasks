@@ -61,11 +61,11 @@ do {
         print('Meintest du Ja?');
         print(lineBreak);
         if(stdin.readLineSync() == 'Nein'){
-          for(int i = 0; i == 2; i++){
-            
+          for(int i = 1; i == 2; i++){
+            print('\nMh, ich kann deinen Akzent nicht verstehen. Probiere es mit "${blueText}Ja${whiteText}" oder "${blueText}Ja${whiteText}".\n');
           }
           print(lineBreak);
-          print('\nMh, ich kann deinen Akzent nicht verstehen. Probiere es mit "${blueText}Ja${whiteText}" oder "${blueText}Ja${whiteText}".\n');
+          
         } else{
           defaultSwitch = true;
         }
