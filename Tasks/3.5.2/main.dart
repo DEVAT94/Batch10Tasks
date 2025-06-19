@@ -8,14 +8,23 @@ printNumber(3);
 triplePrint('a');
 triplePrint('b');
 triplePrint('c');
+
+//Aufgabe 3
+reverseInitials('Johnny', 'Depp');
+reverseInitials('Tom', 'Cruise');
 }
 
-//Aufgabe 1
+//Funktion Aufgabe 1
 void printNumber(int number){
   print(number);
 }
 
-//Aufgabe 2
+//Funktion Aufgabe 2
 void triplePrint(String text){
-print(text);
+  print(text);
+}
+
+//Funktion Aufgabe 3
+void reverseInitials(String firstName, String lastName){
+  print('${firstName.substring(firstName.length - 1).toUpperCase()}. ${lastName.substring(lastName.length - 1).toUpperCase()}.');
 }
