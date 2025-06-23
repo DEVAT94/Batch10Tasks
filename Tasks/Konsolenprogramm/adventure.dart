@@ -58,17 +58,8 @@ do {
       break;
     case 'Nein' :
         print(lineBreak);
-        print('Meintest du Ja?');
-        print(lineBreak);
-        if(stdin.readLineSync() == 'Nein'){
-          for(int i = 1; i == 2; i++){
-            print('\nMh, ich kann deinen Akzent nicht verstehen. Probiere es mit "${blueText}Ja${whiteText}" oder "${blueText}Ja${whiteText}".\n');
-          }
-          print(lineBreak);
-          
-        } else{
-          defaultSwitch = true;
-        }
+        print('${redText}Darnok ist dem Untergang geweiht!');
+        defaultSwitch == true;
     default:
         print('\nMh, ich kann deinen Akzent nicht verstehen. Probiere es mit "${blueText}Ja${whiteText}" oder "${blueText}Nein${whiteText}".\n');
     }   

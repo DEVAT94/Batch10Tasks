@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 void main(){
   //Aufgabe 1
   print(sum(1,2,3));
