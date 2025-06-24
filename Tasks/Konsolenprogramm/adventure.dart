@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:math';
 void main(){
 List<String?> names = ['Velgrath', 'Player'];
-//Map<int, String> actions = {1 : 'Angriff', 2 : 'Heiltrank', 3 : 'flüchten'};
 String whiteText = '\x1B[0m';
 String redText = '\x1B[31m';
 String greenText = '\x1B[32m';
