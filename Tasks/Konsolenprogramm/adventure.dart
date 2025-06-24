@@ -60,6 +60,7 @@ do {
         print(lineBreak);
         print('${redText}Darnok ist dem Untergang geweiht!');
         defaultSwitch == true;
+        exit(0);
     default:
         print('\nMh, ich kann deinen Akzent nicht verstehen. Probiere es mit "${blueText}Ja${whiteText}" oder "${blueText}Nein${whiteText}".\n');
     }   
