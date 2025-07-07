@@ -8,7 +8,7 @@
             "name": "Dart: Run all Tests",
             "type": "dart",
             "request": "launch",
-            "program": "'Directory: '/DEVAT94/Batch10Tasks''"
+            "program": "/Users/alextoth15/projects/Batch10Tasks/Tasks/3.4.4/main.dart"
         },
         {
             "name": "Dart & Flutter",
