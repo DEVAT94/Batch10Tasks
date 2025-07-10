@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/icons.dart';
 
 void main() {
   runApp(const MainApp());
