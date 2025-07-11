@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                         height: 50,
                         child: Text('Text 2'),
                       ),
-                      SizedBox(£
+                      SizedBox(
                         width: 50,
                         height: 0,
                         child: Divider(
