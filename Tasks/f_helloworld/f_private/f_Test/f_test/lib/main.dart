@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: const Color(0xFFFFFFFF) ,
           centerTitle: true,
           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.menu)
           )],
