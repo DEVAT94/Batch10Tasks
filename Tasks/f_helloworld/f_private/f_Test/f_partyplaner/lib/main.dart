@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +23,7 @@ class MainApp extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget> [
+          children: <Widget>[
             Text('Name des Events:'),
             const Padding(
               padding: EdgeInsets.all(5),
@@ -31,7 +34,8 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-            Text('Location:'),
+            Row(children: [ClsDatePicker()]),
+            Text('Location:', style: TextStyle()),
             const Padding(
               padding: EdgeInsets.all(5),
               child: TextField(
@@ -41,8 +45,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-            Text('Anzahl der Personen:',
-            style: TextStyle()),
+            Text('Anzahl der Personen:', style: TextStyle()),
             const Padding(
               padding: EdgeInsets.all(5),
               child: TextField(
@@ -52,6 +55,21 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: BottomNavigationBar(
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.home),
+                    label: 'Home',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.list),
+                    label: 'Events',
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -59,8 +77,33 @@ class MainApp extends StatelessWidget {
   }
 }
 
-class TabList {
-  String tabName;
+class BottomNavList {
+  String home;
 
-  TabList(this.tabName);
+  BottomNavList(this.home);
+}
+
+class ClsDatePicker extends StatefulWidget {
+  const ClsDatePicker({super.key});
+
+  @override
+  State<ClsDatePicker> createState() => _ClsDatePickerState();
+}
+
+class _ClsDatePickerState extends State<ClsDatePicker> {
+  DateTime dateTime = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Datum auswählen:'),
+          ElevatedButton(onPressed: () async {}, child: Text('$dateTime')),
+        ],
+      ),
+    );
+  }
 }
