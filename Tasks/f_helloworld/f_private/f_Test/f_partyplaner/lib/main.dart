@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -55,22 +52,14 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              alignment: Alignment.bottomCenter,
-              child: BottomNavigationBar(
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.list),
-                    label: 'Events',
-                  ),
-                ],
-              ),
-            ),
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Events'),
+            BottomNavigationBarItem(icon: Icon(Icons.create), label: 'Event erstellen'),
+            BottomNavigationBarItem(icon: Icon(Icons.contacts), label: 'Freunde')
+          ]
         ),
       ),
     );
