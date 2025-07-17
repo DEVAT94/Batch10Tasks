@@ -52,9 +52,11 @@ class MainApp extends StatelessWidget {
                   elevation: 4,
                   color: const Color.fromARGB(255, 74, 74, 74),
                   shadowColor: Colors.amber,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 100),
-                    child: Column(
+                  child: Column(
+                    children:[
+                      Container(color: Colors.red, height: 10, width: 10,),
+                      Padding(padding: EdgeInsets.only(left: 100),
+                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -85,7 +87,7 @@ class MainApp extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
+                  )],)
                 ),
               ),
               Container(
