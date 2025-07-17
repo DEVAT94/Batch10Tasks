@@ -15,6 +15,14 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 74, 195, 112),
         appBar: AppBar(
+          titleSpacing: 0,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.person),
+              color: Colors.amber,
+            ),
+          ],
           elevation: 40,
           backgroundColor: const Color.fromARGB(255, 74, 74, 74),
           centerTitle: true,
@@ -43,12 +51,14 @@ class MainApp extends StatelessWidget {
                 child: Card(
                   elevation: 4,
                   color: const Color.fromARGB(255, 74, 74, 74),
+                  shadowColor: Colors.amber,
                   child: Padding(
                     padding: EdgeInsets.only(left: 100),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(height: 20),
                         Text(
                           'Name: Alex',
                           textAlign: TextAlign.center,
@@ -63,6 +73,7 @@ class MainApp extends StatelessWidget {
                           padding: EdgeInsets.only(right: 100),
                           child: Column(
                             children: [
+                              SizedBox(height: 70),
                               Text(
                                 'Erfahrungspunkte: 50 XP',
                                 textAlign: TextAlign.justify,
@@ -92,6 +103,7 @@ class MainApp extends StatelessWidget {
                 child: Card(
                   elevation: 4,
                   color: const Color.fromARGB(255, 74, 74, 74),
+                  shadowColor: Colors.amber,
                   child: const Padding(
                     padding: EdgeInsets.all(10),
                     child: Column(
@@ -101,7 +113,7 @@ class MainApp extends StatelessWidget {
                           'Thema des Tages',
                           style: TextStyle(
                             fontSize: 28,
-                            color: Colors.lightGreen,
+                            color: Colors.amber,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -127,6 +139,7 @@ class MainApp extends StatelessWidget {
                 ),
                 child: Card(
                   elevation: 4,
+                  shadowColor: Colors.amber,
                   color: const Color.fromARGB(255, 74, 74, 74),
                   child: Padding(
                     padding: EdgeInsets.all(10),
@@ -134,16 +147,17 @@ class MainApp extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(color: Colors.red, height: 10),
-                        Text(
-                          'Statistiken',
-                          style: TextStyle(
-                            fontSize: 28,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                        Center(
+                          child: Text(
+                            'Statistiken',
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
+                        Divider(thickness: 2, color: Colors.amber),
 
                         /*
                 
