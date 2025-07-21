@@ -16,11 +16,8 @@ class MainApp extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class _AppHomeState extends StatefulWidget {
-  //int currentIndex;
-  final List<Widget> screens = [NewsPage(), LikesPage(), ProfilePage()];
-  _AppHomeState();
+  const _AppHomeState();
 
   @override
   State<_AppHomeState> createState() => __AppHomeStateState();
