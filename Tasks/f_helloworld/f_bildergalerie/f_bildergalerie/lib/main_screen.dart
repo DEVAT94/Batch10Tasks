@@ -13,12 +13,12 @@ class MainScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           forceMaterialTransparency: true,
+          automaticallyImplyLeading: true,
           title: Text('My Gallery'),
           centerTitle: true,
-          //backgroundColor: Colors.deepPurple,
           foregroundColor: Colors.white,
         ),
-        body: Mygallery(),
+        body: MyGallery(),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             const BottomNavigationBarItem(icon: Icon(Icons.photo_library_outlined), label: 'Bilder',),
