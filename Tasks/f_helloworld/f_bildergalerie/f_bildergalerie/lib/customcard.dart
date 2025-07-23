@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatefulWidget {
-  final String text;
-  final String imageName;
-  const CustomCard({super.key, required this.text, required this.imageName});
+  final String imagePath;
+  final String imageTitle;
+  final String imageDate;
+  final String imageDetails;
+
+  const CustomCard({
+    super.key,
+    required this.imagePath,
+    required this.imageTitle,
+    required this.imageDate,
+    required this.imageDetails,
+  });
 
   @override
   State<CustomCard> createState() => _CustomCardState();
@@ -22,13 +31,13 @@ class _CustomCardState extends State<CustomCard> {
           Expanded(
             flex: 2,
             child: Image.asset(
-              'assets/images/${widget.imageName}',
+              'assets/images/${widget.imagePath}',
               fit: BoxFit.cover,
               width: double.infinity,
             ),
           ),
           Text(
-            widget.text,
+            widget.imageTitle,
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ],

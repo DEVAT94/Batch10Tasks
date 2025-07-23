@@ -4,7 +4,6 @@ import 'package:f_bildergalerie/mygallery.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-
   const MainScreen({super.key});
 
   @override
@@ -13,9 +12,9 @@ class MainScreen extends StatelessWidget {
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: CustomAppBar(),
+        appBar: CustomAppBar(appBarTitle: 'MyGallery'),
         body: MyGallery(),
-        bottomNavigationBar: CustomNavBar()
+        bottomNavigationBar: CustomNavBar(),
       ),
     );
   }
