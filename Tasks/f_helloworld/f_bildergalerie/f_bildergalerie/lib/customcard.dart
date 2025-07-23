@@ -25,7 +25,7 @@ class _CustomCardState extends State<CustomCard> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       clipBehavior: Clip.antiAlias,
       elevation: 10,
-      color: const Color.fromARGB(255, 232, 232, 232),
+      color: const Color.fromARGB(221, 255, 255, 255),
       child: Column(
         children: [
           Expanded(

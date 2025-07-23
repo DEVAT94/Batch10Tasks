@@ -21,8 +21,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
           label: 'Über mich',
         ),
       ],
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white,
+      selectedItemColor: const Color.fromARGB(221, 255, 255, 255),
+      unselectedItemColor: const Color.fromARGB(221, 255, 255, 255),
     );
   }
 }

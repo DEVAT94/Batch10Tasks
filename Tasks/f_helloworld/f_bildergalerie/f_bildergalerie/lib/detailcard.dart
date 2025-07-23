@@ -22,7 +22,7 @@ class DetailCard extends StatelessWidget {
       appBar: CustomAppBar(appBarTitle: 'Details'),
       body: GridView.count(
         crossAxisCount: 1,
-        mainAxisSpacing: 10,
+        mainAxisSpacing: 1,
         children: [
           Image.asset('assets/images/$imagePath'),
           DetailCardText(
@@ -51,14 +51,36 @@ class DetailCardText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(title),
-        SizedBox(height: 20),
-        Text(textDate),
-        SizedBox(height: 20),
-        Text(details),
-      ],
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 40,
+              color: const Color.fromARGB(221, 255, 255, 255),
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            textDate,
+            style: TextStyle(
+              fontSize: 20,
+              color: const Color.fromARGB(221, 255, 255, 255),
+            ),
+          ),
+          SizedBox(height: 20),
+          Text(
+            details,
+            style: TextStyle(
+              fontSize: 16,
+              color: const Color.fromARGB(221, 255, 255, 255),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
