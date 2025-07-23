@@ -1,5 +1,6 @@
-import 'package:f_bildergalerie/customcard.dart';
+import 'package:f_bildergalerie/detailcard.dart';
 import 'package:flutter/material.dart';
+import 'package:f_bildergalerie/customcard.dart';
 
 class MyGallery extends StatefulWidget {
   const MyGallery({super.key});
@@ -19,16 +20,33 @@ class _MyGalleryState extends State<MyGallery> {
         mainAxisSpacing: 10,
         crossAxisCount: 2,
         children: [
-          CustomCard(text: 'Tiere', imageName: 'schaf.jpg'),
-          CustomCard(text: 'Feiern', imageName: 'feiern.png'),
-          CustomCard(text: 'Freunde', imageName: 'freunde.jpg'),
-          CustomCard(text: 'Games', imageName: 'games.png'),
-          CustomCard(text: 'Chef´s Arena Gerichte', imageName: 'essen.png'),
-          CustomCard(text: 'Kunst', imageName: 'kunst.png'),
-          CustomCard(text: 'Urlaub', imageName: 'urlaub.png'),
-          CustomCard(text: 'Wandern', imageName: 'wandern.jpg')
+          _buildCard('Tiere', 'schaf.jpg'),
+          _buildCard('Feiern', 'feiern.png'),
+          _buildCard('Freunde', 'freunde.jpg'),
+          _buildCard('Games', 'games.png'),
+          _buildCard('Chef´s Arena Gerichte', 'essen.png'),
+          _buildCard('Kunst', 'kunst.png'),
+          _buildCard('Urlaub', 'urlaub.png'),
+          _buildCard('Wandern', 'wandern.jpg'),
         ],
       ),
     );
   }
+
+  Widget _buildCard(String text, String imageName) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailCard(
+              imageName: imageName,
+            ),
+          ),
+        );
+      },
+      child: CustomCard(text: text, imageName: imageName),
+    );
+  }
 }
+

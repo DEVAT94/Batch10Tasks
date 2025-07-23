@@ -1,3 +1,5 @@
+import 'package:f_bildergalerie/customappbar.dart';
+import 'package:f_bildergalerie/custombottomnavbar.dart';
 import 'package:f_bildergalerie/mygallery.dart';
 import 'package:flutter/material.dart';
 
@@ -11,22 +13,9 @@ class MainScreen extends StatelessWidget {
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          forceMaterialTransparency: true,
-          automaticallyImplyLeading: true,
-          title: Text('My Gallery'),
-          centerTitle: true,
-          foregroundColor: Colors.white,
-        ),
+        appBar: CustomAppBar(),
         body: MyGallery(),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            const BottomNavigationBarItem(icon: Icon(Icons.photo_library_outlined), label: 'Bilder',),
-            const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Über mich')
-          ],
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white,
-        ),
+        bottomNavigationBar: CustomNavBar()
       ),
     );
   }
