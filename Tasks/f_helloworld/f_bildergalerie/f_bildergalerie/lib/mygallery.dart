@@ -1,3 +1,4 @@
+import 'package:f_bildergalerie/customappbar.dart';
 import 'package:f_bildergalerie/detailcard.dart';
 import 'package:f_bildergalerie/details.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class _MyGalleryState extends State<MyGallery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(appBarTitle: 'MyGallery'),
       body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),

@@ -1,8 +1,6 @@
-import 'package:f_bildergalerie/customappbar.dart';
-import 'package:f_bildergalerie/custombottomnavbar.dart';
 import 'package:flutter/material.dart';
 
-class DetailCard extends StatelessWidget {
+class DetailCard extends StatefulWidget {
   final String imagePath;
   final String imageTitle;
   final String imageDate;
@@ -17,22 +15,47 @@ class DetailCard extends StatelessWidget {
   });
 
   @override
+  State<DetailCard> createState() => _DetailCardState();
+}
+
+class _DetailCardState extends State<DetailCard> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(appBarTitle: 'Details'),
+      appBar: AppBar(
+        centerTitle: true,
+        foregroundColor: const Color.fromARGB(221, 255, 255, 255),
+        iconTheme: IconThemeData(
+          color: const Color.fromARGB(221, 255, 255, 255),
+        ),
+      ),
       body: GridView.count(
         crossAxisCount: 1,
         mainAxisSpacing: 1,
         children: [
-          Image.asset('assets/images/$imagePath'),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            clipBehavior: Clip.antiAlias,
+            elevation: 10,
+            child: Expanded(
+              flex: 2,
+              child: Image.asset(
+                'assets/images/${widget.imagePath}',
+                fit: BoxFit.cover,
+                width: 10,
+              ),
+            ),
+          ),
+
           DetailCardText(
-            title: imageTitle,
-            textDate: imageDate,
-            details: imageDetails,
+            title: widget.imageTitle,
+            textDate: widget.imageDate,
+            details: widget.imageDetails,
           ),
         ],
       ),
-      bottomNavigationBar: CustomNavBar(),
     );
   }
 }

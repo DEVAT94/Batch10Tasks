@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
 
-class CustomNavBar extends StatefulWidget {
-  const CustomNavBar({super.key});
+class CustomNavBar extends StatelessWidget {
+  final int currentIndex;
+  final Function(int) onTap;
 
-  @override
-  State<CustomNavBar> createState() => _CustomNavBarState();
-}
+  const CustomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
-class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [
-        const BottomNavigationBarItem(
+      currentIndex: currentIndex,
+      onTap: onTap,
+      items: const [
+        BottomNavigationBarItem(
           icon: Icon(Icons.photo_library_outlined),
           label: 'Bilder',
         ),
-        const BottomNavigationBarItem(
+        BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: 'Über mich',
         ),
       ],
-      selectedItemColor: const Color.fromARGB(221, 255, 255, 255),
-      unselectedItemColor: const Color.fromARGB(221, 255, 255, 255),
+      selectedItemColor: Color.fromARGB(221, 255, 255, 255),
+      unselectedItemColor: Color.fromARGB(221, 255, 255, 255),
     );
   }
 }
