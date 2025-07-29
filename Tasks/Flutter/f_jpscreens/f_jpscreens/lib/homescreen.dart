@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 child: Image(
@@ -31,21 +30,24 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Card(
+                color: WidgetStateColor.transparent,
                 child: Column(
                   children: [
                     Text(
                       'Feeling Snackish Today?',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                     Text(
                       'Explore Angis most popular snack selection\nand get instantly happy.',
                       textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(
+                        backgroundColor: WidgetStateColor.transparent,
                         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -53,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Text('Order now'),
+                      child: Text('Order now', style: TextStyle(color: Colors.white),),
                     ),
                   ],
                 ),
