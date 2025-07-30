@@ -1,4 +1,4 @@
-import 'package:blur/blur.dart';
+import 'package:f_jpscreens/customelevatedbutton.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,48 +17,50 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 120),
               SizedBox(
                 child: Image(
                   image: AssetImage('assets/graphics/cupcake_chick.png'),
                 ),
               ),
-              SizedBox(
-                child: Image(
-                  image: AssetImage('assets/details/snack_snack.png'),
-                ),
-              ),
-              Card(
-                color: WidgetStateColor.transparent,
-                child: Column(
-                  children: [
-                    Text(
-                      'Feeling Snackish Today?',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      'Explore Angis most popular snack selection\nand get instantly happy.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateColor.transparent,
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.deepPurple),
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Image(image: AssetImage('assets/details/snack_snack.png')),
+                  SizedBox(height: 100),
+                  SizedBox(
+                    width: 350,
+                    height: 200,
+                    child: Card(
+                      color: Colors.black12,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 20),
+                          Text(
+                            'Feeling Snackish Today?',
+                            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
                           ),
-                        ),
+                          Text(
+                            'Explore Angis most popular snack selection\nand get instantly happy',
+                            style: TextStyle(color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 20),
+                          CustomElevatedBtn(
+                            width: 180,
+                            onPressed: () {},
+                            borderRadius: BorderRadius.circular(10),
+                            child: Text(
+                              'Order Now',
+                              style: TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                          ),
+                        ],
                       ),
-                      child: Text('Order now', style: TextStyle(color: Colors.white),),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
