@@ -1,4 +1,4 @@
-import 'package:f_jpscreens/homescreen.dart';
+import 'package:f_jpscreens/Screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
