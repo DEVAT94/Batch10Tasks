@@ -1,4 +1,4 @@
-import 'package:f_jpscreens/Screens/homescreen.dart';
+import 'package:f_jpscreens/Screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomeScreen();
+    return MainScreen();
   }
 }

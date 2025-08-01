@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomElevatedBtn extends StatelessWidget {
+class CustomElevatedBtn extends StatelessWidget{
   final BorderRadiusGeometry? borderRadius;
   final double? width;
   final double height;
