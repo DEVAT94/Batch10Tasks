@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:f_jpscreens/CustomWidgets/cardview.dart';
 import 'package:f_jpscreens/CustomWidgets/customelevatedbutton.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -166,6 +168,10 @@ class MainScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                  CustomElevatedBtn(
+                                    onPressed: () {},
+                                    child: Text('Add to order'),
+                                  ),
                                 ],
                               ),
                             ),
@@ -173,6 +179,92 @@ class MainScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'We Recommend',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+                SizedBox(height: 20),
+
+                Row(
+                  children: [
+                    SizedBox(
+                      height: 250,
+                      width: 200,
+                      child: Card(
+                        color: Colors.transparent,
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              'assets/graphics/cupkake_cat.png',
+                              scale: 4,
+                            ),
+                            //color: Colors.white,
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: EdgeInsets.only(left: 0),
+                              child: Text(
+                                'Mogli´s Cup',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 0),
+                              child: Text(
+                                'Strawberry ice cream',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            SizedBox(height: 16),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Row(
+                                children: [
+                                  ImageIcon(
+                                    Image.asset(
+                                      'assets/details/austral-sign-solid-full.png',
+                                    ).image,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    '8.99',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Spacer(flex: 1),
+                                  Icon(
+                                    Icons.favorite_border,
+                                    color: Colors.white,
+                                  ),
+
+                                  Text(
+                                    '300',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    CustomCardView(),
                   ],
                 ),
               ],
