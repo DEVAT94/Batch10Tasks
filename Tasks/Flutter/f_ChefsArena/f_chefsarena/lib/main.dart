@@ -1,4 +1,4 @@
-import 'package:f_chefsarena/screens/homescreen/homescreen.dart';
+import 'package:f_chefsarena/screens/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,5 +11,5 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HomeScreen();
-}
+  }
 }

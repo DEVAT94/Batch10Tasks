@@ -1,3 +1,5 @@
+import 'package:f_chefsarena/features/boxdecoration.dart';
+import 'package:f_chefsarena/features/cappbar.dart';
 import 'package:f_chefsarena/features/customcards.dart';
 import 'package:f_chefsarena/features/gnavbar.dart';
 import 'package:flutter/material.dart';
@@ -11,27 +13,8 @@ class HomeScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          title: Text('Test'),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          foregroundColor: Colors.white,
-        ),
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.amber,
-                Colors.yellowAccent,
-                Color(0xFF8BC34A),
-                Colors.blueGrey,
-                Color.fromARGB(255, 74, 74, 74),
-              ],
-              stops: [0.1, 0.4, 0.6, 0.8, 1],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
+        appBar: CustomAppBar(),
+        body: CustomBoxDeco(
           child: SafeArea(
             child: Column(
               children: [
@@ -165,7 +148,6 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                             Divider(thickness: 2, color: Colors.amber),
-
                             /*
                 
                 Bereich: Statistik-Cards
