@@ -1,3 +1,4 @@
+import 'package:f_chefsarena/screens/duel.dart';
 import 'package:f_chefsarena/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomeScreen();
+    return DuelMode();
   }
 }

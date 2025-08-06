@@ -7,15 +7,25 @@ class CustomCard extends StatelessWidget {
   final Color foregroundDescription;
   final Color foregroundSubText;
   final double width;
+  final FontWeight fontWeight;
+  final TextAlign textAlign;
+  final double fontSize;
+  final CrossAxisAlignment crossAxisAlignment;
+  final Widget child;
 
   const CustomCard({
     super.key,
     required this.description,
     required this.subTextDescription,
+    this.child = Column(),
     this.backgroundColor = const Color.fromARGB(150, 74, 74, 74),
     this.width = double.infinity, 
     this.foregroundDescription = Colors.amber, 
-    this.foregroundSubText = Colors.white
+    this.foregroundSubText = Colors.white, 
+    this.fontWeight = FontWeight.bold,
+    this.textAlign = TextAlign.left,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.fontSize = 16
   });
 
   @override
@@ -28,13 +38,15 @@ class CustomCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: crossAxisAlignment,
             children: [
               Text(
                 description,
+                textAlign: textAlign,
                 style: TextStyle(
                   color: foregroundDescription,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: fontWeight,
+                  fontSize: fontSize
                 ),
               ),
               Text(
@@ -42,6 +54,7 @@ class CustomCard extends StatelessWidget {
                 style: TextStyle(
                   color: foregroundSubText,
                   fontWeight: FontWeight.bold,
+                  fontSize: fontSize
                 ),
               ),
             ],
