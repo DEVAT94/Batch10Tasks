@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final String text;
+  final double fontSize;
+  final FontWeight fontWeight;
+  final Color color;
 
-  @override  
+  const CustomAppBar({
+    super.key,
+    required this.text,
+    this.fontSize = 24,
+    this.fontWeight = FontWeight.bold,
+    this.color = Colors.white,
+  });
+
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        'HomeScreen',
+        text,
         style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          color: color,
         ),
       ),
       centerTitle: true,

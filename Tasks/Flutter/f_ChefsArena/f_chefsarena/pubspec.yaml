@@ -15,8 +15,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: 'assets/icons/chefsarenalogo.png'
+  adaptive_icon_foreground: 'assets/icons/chefsarenalogo.png'
+  adaptive_icon_background: '#000000'
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/icons/

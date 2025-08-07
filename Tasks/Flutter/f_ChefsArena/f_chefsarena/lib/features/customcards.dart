@@ -2,36 +2,36 @@ import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
   final String description;
-  final String subTextDescription;
+  final String? subTextDescription;
   final Color backgroundColor;
-  final Color foregroundDescription;
-  final Color foregroundSubText;
+  final Color descriptionColor;
+  final Color subTextColor;
   final double width;
   final FontWeight fontWeight;
   final TextAlign textAlign;
   final double fontSize;
   final CrossAxisAlignment crossAxisAlignment;
-  final Widget child;
+  final Widget? child;
 
   const CustomCard({
     super.key,
     required this.description,
-    required this.subTextDescription,
-    this.child = Column(),
+    this.subTextDescription,
+    this.child,
     this.backgroundColor = const Color.fromARGB(150, 74, 74, 74),
-    this.width = double.infinity, 
-    this.foregroundDescription = Colors.amber, 
-    this.foregroundSubText = Colors.white, 
+    this.width = double.infinity,
+    this.descriptionColor = Colors.amber,
+    this.subTextColor = Colors.white,
     this.fontWeight = FontWeight.bold,
     this.textAlign = TextAlign.left,
     this.crossAxisAlignment = CrossAxisAlignment.start,
-    this.fontSize = 16
+    this.fontSize = 16,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 5,
       color: backgroundColor,
       child: SizedBox(
         width: width,
@@ -39,24 +39,26 @@ class CustomCard extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: crossAxisAlignment,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 description,
                 textAlign: textAlign,
                 style: TextStyle(
-                  color: foregroundDescription,
+                  color: descriptionColor,
                   fontWeight: fontWeight,
-                  fontSize: fontSize
+                  fontSize: fontSize,
                 ),
               ),
               Text(
-                subTextDescription,
+                subTextDescription!,
                 style: TextStyle(
-                  color: foregroundSubText,
+                  color: subTextColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: fontSize
+                  fontSize: fontSize,
                 ),
               ),
+              if (child != null) ...[const SizedBox(height: 16), child!],
             ],
           ),
         ),
