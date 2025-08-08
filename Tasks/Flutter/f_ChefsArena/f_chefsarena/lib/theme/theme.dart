@@ -6,12 +6,15 @@ class AppTheme {
   static const Color secondaryColor = Colors.amber;
   static const Color headlineColor = Colors.white;
   static const Color textColor = Colors.black;
+  static const Color cardColor = Color.fromARGB(150, 74, 74, 74);
 
   // TextTheme
   static final TextTheme textTheme = TextTheme(
-    headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: headlineColor),
+    headlineLarge: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: primaryColor),
     bodyMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: headlineColor),
-    labelLarge: TextStyle(fontSize: 14, color: textColor),
+    bodySmall: TextStyle(fontSize: 20, color: headlineColor),
+    labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: secondaryColor),
+    labelMedium: TextStyle(fontSize: 14, color: headlineColor),
   );
 
   // ButtonStyle
@@ -25,7 +28,7 @@ class AppTheme {
     ),
   );
 
-  // Komplettes ThemeData
+
   static ThemeData get themeData {
     return ThemeData(
       useMaterial3: true,
@@ -35,10 +38,10 @@ class AppTheme {
         style: elevatedButtonStyle,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: primaryColor,
         foregroundColor: headlineColor,
         elevation: 0,
       ),
+      cardColor: cardColor
     );
   }
 }

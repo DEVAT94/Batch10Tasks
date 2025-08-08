@@ -1,17 +1,12 @@
+import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String text;
-  final double fontSize;
-  final FontWeight fontWeight;
-  final Color color;
 
   const CustomAppBar({
     super.key,
     required this.text,
-    this.fontSize = 24,
-    this.fontWeight = FontWeight.bold,
-    this.color = Colors.white,
   });
 
   @override
@@ -22,15 +17,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         text,
-        style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          color: color,
-        ),
+        style: AppTheme.textTheme.bodyMedium
       ),
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      foregroundColor: Colors.white,
+      foregroundColor: AppTheme.headlineColor,
     );
   }
 }

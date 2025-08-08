@@ -1,4 +1,5 @@
 import 'package:f_chefsarena/features/customcards.dart';
+import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -10,7 +11,7 @@ class ProfileCard extends StatelessWidget {
       height: 200,
       width: double.infinity,
       child: Card(
-        color: const Color.fromARGB(150, 74, 74, 74),
+        color: AppTheme.themeData.cardColor,
         elevation: 20,
         child: Padding(
           padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
@@ -30,40 +31,28 @@ class ProfileCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 20),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Name: Nico',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTheme.textTheme.bodyMedium
                       ),
                       Text(
                         'Rang: Hobbykoch',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTheme.textTheme.bodyMedium
                       ),
                     ],
                   ),
                 ],
               ),
               const SizedBox(height: 20),
-              const Text(
+              Text(
                 'Erfahrungspunkte: 50 XP',
                 textAlign: TextAlign.justify,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTheme.textTheme.labelLarge
               ),
-              const LinearProgressIndicator(color: Colors.amber),
+              const LinearProgressIndicator(color: AppTheme.secondaryColor),
             ],
           ),
         ),
@@ -81,24 +70,20 @@ class ToDaysTopic extends StatelessWidget {
       height: 120,
       width: double.infinity,
       child: Card(
-        color: const Color.fromARGB(150, 74, 74, 74),
+        color: AppTheme.cardColor,
         elevation: 20,
-        child: const Padding(
-          padding: EdgeInsets.all(10),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Thema des Tages',
-                style: TextStyle(
-                  fontSize: 36,
-                  color: Color(0xFF8BC34A),
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTheme.textTheme.headlineLarge
               ),
               Text(
                 'Ein Sommergericht',
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                style: AppTheme.textTheme.bodySmall,
               ),
             ],
           ),
@@ -116,24 +101,20 @@ class StatsCard extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        color: const Color.fromARGB(150, 74, 74, 74),
+        color: AppTheme.cardColor,
         elevation: 20,
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
+              Center(
                 child: Text(
                   'Statistiken',
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTheme.textTheme.bodyMedium
                 ),
               ),
-              const Divider(thickness: 2, color: Colors.amber),
+              const Divider(thickness: 2, color: AppTheme.secondaryColor),
               const SizedBox(height: 8),
               const CustomCard(
                 description: 'Anzahl der durchgeführten Duelle:',

@@ -1,3 +1,4 @@
+import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -52,11 +53,7 @@ class CustomCard extends StatelessWidget {
               ),
               Text(
                 subTextDescription!,
-                style: TextStyle(
-                  color: subTextColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: fontSize,
-                ),
+                style: AppTheme.textTheme.labelMedium
               ),
               if (child != null) ...[const SizedBox(height: 16), child!],
             ],
