@@ -18,8 +18,8 @@ class _MainAppScreenState extends State<MainAppScreen> {
   final List<Widget> _screens = const [
     HomeScreen(),
     DuelMode(),
-    RecipeScreen(), // Rezepte
-    FriendScreen(), // Freunde
+    RecipeScreen(),
+    FriendScreen()
   ];
 
   @override
