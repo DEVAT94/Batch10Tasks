@@ -1,5 +1,5 @@
 
-import 'package:f_chefsarena/screens/mainappscreen.dart';
+import 'package:f_chefsarena/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainAppScreen()
+      home: LogIn()
     );
   }
 }

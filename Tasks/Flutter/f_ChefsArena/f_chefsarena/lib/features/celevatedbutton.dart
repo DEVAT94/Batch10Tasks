@@ -8,7 +8,9 @@ class CustomElevatedButton extends StatelessWidget {
   final double width;
   final double height;
   final WidgetStatePropertyAll<Color>? iconColor;
+  final WidgetStatePropertyAll<double>? iconSize;
   final WidgetStatePropertyAll<double>? elevation;
+  final VoidCallback? onPressed;
 
   const CustomElevatedButton({
     super.key,
@@ -20,6 +22,8 @@ class CustomElevatedButton extends StatelessWidget {
     this.height = 50,
     this.elevation,
     this.iconColor,
+    this.iconSize,
+    required this.onPressed
   });
 
   @override
@@ -28,12 +32,13 @@ class CustomElevatedButton extends StatelessWidget {
       width: width,
       height: height,
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: onPressed,
         label: Text(text, style: textStyle),
         icon: icon,
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(backgroundColor),
           iconColor: iconColor,
+          iconSize: iconSize,
           elevation: elevation,
         ),
       ),

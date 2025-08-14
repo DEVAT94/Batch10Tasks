@@ -32,6 +32,7 @@ class DuelMode extends StatelessWidget {
                     child: Column(
                       children: [
                         CustomElevatedButton(
+                          onPressed: () {},
                           text: 'Let´s cook',
                           icon: ImageIcon(
                             AssetImage('assets/icons/kuchengerate.png'),
