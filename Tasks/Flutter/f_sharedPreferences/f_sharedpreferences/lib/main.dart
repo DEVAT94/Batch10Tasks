@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _loadDarkMode() async {
-    final savedDark = await loadDarkMode();
+    final savedDark = loadDarkMode();
     setState(() {
       isDarkMode = savedDark;
     });
