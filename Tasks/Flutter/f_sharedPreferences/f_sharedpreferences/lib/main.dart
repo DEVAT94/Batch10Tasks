@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController controller = TextEditingController();
   String? name;
+  bool isDarkMode = false;
 
   Future<void> _loadSavedName() async {
     final saved = loadName();
@@ -47,10 +48,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future<void> _loadDarkMode() async {
+    final savedDark = await loadDarkMode();
+    setState(() {
+      isDarkMode = savedDark;
+    });
+  }
+
+  Future<void> _saveDarkMode(bool value) async {
+    await setDarkMode(value);
+    setState(() {
+      isDarkMode = value;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     _loadSavedName();
+    _loadDarkMode();
   }
 
   @override
@@ -77,6 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(name ?? ''),
             ElevatedButton(onPressed: _saveName, child: const Text('Save')),
+            Switch(value: isDarkMode,
+            activeColor: Colors.greenAccent,
+            
+            onChanged: (bool value) {
+              _saveDarkMode(value);
+            },),
+            Text('DarkMode on: ${isDarkMode.toString()}')
           ],
         ),
       ),

@@ -19,3 +19,17 @@ Future<bool> saveName (String name) async {
 String loadName () {
   return _prefs?.getString('name') ?? '';
 }
+
+Future<bool> setDarkMode (bool darkMode) async {
+
+  try{
+    return _prefs!.setBool('darkMode', darkMode);
+  } catch(e) {
+    print('Error with saving stuff $e');
+    return false;
+  }
+}
+
+bool loadDarkMode () {
+  return _prefs?.getBool('darkMode') ?? false;
+}
