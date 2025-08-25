@@ -93,13 +93,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(name ?? ''),
             ElevatedButton(onPressed: _saveName, child: const Text('Save')),
-            Switch(value: isDarkMode,
-            activeColor: Colors.greenAccent,
-            
-            onChanged: (bool value) {
-              _saveDarkMode(value);
-            },),
-            Text('DarkMode on: ${isDarkMode.toString()}')
+            Switch(
+              value: isDarkMode,
+              activeColor: Colors.greenAccent,
+              onChanged: (bool value) {
+                _saveDarkMode(value);
+              },
+            ),
+            Text('DarkMode on: ${isDarkMode.toString()}'),
           ],
         ),
       ),
