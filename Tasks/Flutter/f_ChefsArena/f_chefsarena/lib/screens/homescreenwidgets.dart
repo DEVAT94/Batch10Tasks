@@ -70,7 +70,7 @@ class ToDaysTopic extends StatelessWidget {
       height: 120,
       width: double.infinity,
       child: Card(
-        color: AppTheme.cardColor,
+        color: AppTheme.regularCardColor,
         elevation: 20,
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -101,7 +101,7 @@ class StatsCard extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        color: AppTheme.cardColor,
+        color: AppTheme.regularCardColor,
         elevation: 20,
         child: Padding(
           padding: const EdgeInsets.all(10),

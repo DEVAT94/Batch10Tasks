@@ -21,11 +21,11 @@ class RezeptCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppTheme.cardColor,
+        color: AppTheme.regularCardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.cardColor,
+            color: AppTheme.regularCardColor,
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),

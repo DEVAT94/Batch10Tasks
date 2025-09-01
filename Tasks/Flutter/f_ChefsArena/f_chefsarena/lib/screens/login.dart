@@ -88,7 +88,7 @@ class _TextFieldsState extends State<TextFields> {
               if (kDebugMode) {
                 print("Username: $username Password: $password");
               }
-              if (username == 'Alex' && password == 'test') {
+              if (username == 'alex' && password == 'test') {
                 if (kDebugMode) {
                   print("Username: $username Password: $password");
                 }
@@ -108,7 +108,7 @@ class _TextFieldsState extends State<TextFields> {
             icon: ImageIcon(AssetImage('assets/icons/login.png')),
             backgroundColor: AppTheme.primaryColor,
             textStyle: AppTheme.textTheme.bodyMedium,
-            iconColor: WidgetStatePropertyAll(AppTheme.cardColor),
+            iconColor: WidgetStatePropertyAll(AppTheme.regularCardColor),
             iconSize: WidgetStatePropertyAll(32),
           ),
         ],

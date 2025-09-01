@@ -1,3 +1,4 @@
+import 'package:f_chefsarena/features/alertdialog.dart';
 import 'package:f_chefsarena/features/boxdecoration.dart';
 import 'package:f_chefsarena/features/cappbar.dart';
 import 'package:f_chefsarena/features/celevatedbutton.dart';
@@ -32,7 +33,9 @@ class DuelMode extends StatelessWidget {
                     child: Column(
                       children: [
                         CustomElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showCountdownDialog(context, 120, 1);
+                          },
                           text: 'Let´s cook',
                           icon: ImageIcon(
                             AssetImage('assets/icons/kuchengerate.png'),

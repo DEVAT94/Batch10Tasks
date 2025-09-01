@@ -22,7 +22,7 @@ class FriendScreen extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: AppTheme.cardColor,
+                    color: AppTheme.regularCardColor,
                   ),
                   child: Column(
                     children: [
