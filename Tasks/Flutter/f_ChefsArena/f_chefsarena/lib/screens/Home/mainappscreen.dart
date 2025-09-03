@@ -1,6 +1,7 @@
+import 'package:f_chefsarena/screens/addrecipes.dart';
 import 'package:f_chefsarena/screens/duel.dart';
-import 'package:f_chefsarena/screens/friends.dart';
-import 'package:f_chefsarena/screens/home.dart';
+import 'package:f_chefsarena/screens/Friends/friends.dart';
+import 'package:f_chefsarena/screens/Home/home.dart';
 import 'package:f_chefsarena/screens/recipes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -19,7 +20,8 @@ class _MainAppScreenState extends State<MainAppScreen> {
     HomeScreen(),
     DuelMode(),
     RecipeScreen(),
-    FriendScreen()
+    FriendScreen(),
+    AddRecipes()
   ];
 
   @override

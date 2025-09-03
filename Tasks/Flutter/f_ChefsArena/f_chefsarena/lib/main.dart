@@ -1,4 +1,7 @@
 
+import 'package:f_chefsarena/features/friendlist.dart';
+import 'package:f_chefsarena/screens/Friends/friends.dart';
+import 'package:f_chefsarena/screens/addrecipes.dart';
 import 'package:f_chefsarena/screens/duel.dart';
 import 'package:f_chefsarena/screens/login.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +17,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DuelMode()
+      home: AddRecipes()
     );
   }
 }

@@ -11,12 +11,13 @@ class RecipeData {
     required this.directions,
   });
 
-  RecipeData copyWith({
+  Future<RecipeData> getRecipeData({
     String? id,
     String? name,
     String? ingredients,
     String? directions,
-  }) {
+  }) async {
+    await Future.delayed(const Duration(milliseconds: 500));
     return RecipeData(
       id: id ?? this.id,
       name: name ?? this.name,
@@ -25,7 +26,8 @@ class RecipeData {
     );
   }
 
-  factory RecipeData.empty() =>
-      const RecipeData(id: '', name: '', ingredients: '', directions: '');
-
+  static Future<RecipeData> empty() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+    return const RecipeData(id: '', name: '', ingredients: '', directions: '');
+  }
 }

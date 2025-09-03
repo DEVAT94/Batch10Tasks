@@ -20,8 +20,8 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: false
-  image_path: 'assets/icons/chefsarenalogo.png'
-  adaptive_icon_foreground: 'assets/icons/chefsarenalogo.png'
+  image_path: 'assets/icons/chefsarena.png'
+  adaptive_icon_foreground: 'assets/icons/chefsarena.png'
   adaptive_icon_background: '#000000'
 
 flutter:

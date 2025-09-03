@@ -27,21 +27,18 @@ class Recipedb {
   
   List<RecipeData> get items => List.unmodifiable(_recipes);
 
-  //CREATE
-  RecipeData create(RecipeData draft) {
-    final created = draft.copyWith(id: (_idCounter++).toString());
-    _recipes.add(created);
+  Future<RecipeData> create(RecipeData draft) async{
+    final created = draft.getRecipeData(id: (_idCounter++).toString());
+    _recipes.add(await created);
     return created;
   }
 
-  //UPDATE
   void update(RecipeData updated) {
     final i = _recipes.indexWhere((p) => p.id == updated.id);
     if (i == -1) return;
     _recipes[i] = updated;
   }
 
-  //DELETE
   void delete(String id) {
     _recipes.removeWhere((p) => p.id == id);
   }

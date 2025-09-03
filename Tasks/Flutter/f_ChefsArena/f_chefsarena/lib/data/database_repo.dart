@@ -2,13 +2,13 @@ import 'package:f_chefsarena/data/recipedata.dart';
 
 abstract class DatabaseRepository{
   
-  List<RecipeData> get recipes;
+  Future <List<RecipeData>> get recipes;
 
-  RecipeData? byId(String id);
+  Future <RecipeData?> byId(String id);
 
-  RecipeData create(RecipeData draft);
+  Future <RecipeData> create(RecipeData draft);
 
-  void update(RecipeData updated);
+  Future <void> update(RecipeData updated);
 
-  void delete(String id);
+  Future <void> delete(String id);
 }
