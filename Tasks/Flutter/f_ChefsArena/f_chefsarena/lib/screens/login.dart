@@ -105,7 +105,7 @@ class _TextFieldsState extends State<TextFields> {
               }
             },
             text: 'Login',
-            icon: ImageIcon(AssetImage('assets/icons/login.png')),
+            imageIcon: ImageIcon(AssetImage('assets/icons/login.png')),
             backgroundColor: AppTheme.primaryColor,
             textStyle: AppTheme.textTheme.bodyMedium,
             iconColor: WidgetStatePropertyAll(AppTheme.regularCardColor),

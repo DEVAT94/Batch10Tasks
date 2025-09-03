@@ -1,8 +1,8 @@
-import 'package:f_chefsarena/screens/addrecipes.dart';
-import 'package:f_chefsarena/screens/duel.dart';
+import 'package:f_chefsarena/screens/Recipes/addrecipes.dart';
+import 'package:f_chefsarena/screens/duel/duel.dart';
 import 'package:f_chefsarena/screens/Friends/friends.dart';
 import 'package:f_chefsarena/screens/Home/home.dart';
-import 'package:f_chefsarena/screens/recipes.dart';
+import 'package:f_chefsarena/screens/Recipes/recipes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 

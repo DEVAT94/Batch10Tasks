@@ -37,7 +37,7 @@ class DuelMode extends StatelessWidget {
                             showCountdownDialog(context, 120, 1);
                           },
                           text: 'Let´s cook',
-                          icon: ImageIcon(
+                          imageIcon: ImageIcon(
                             AssetImage('assets/icons/kuchengerate.png'),
                             size: 32,
                           ),
