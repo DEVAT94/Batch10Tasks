@@ -1,4 +1,8 @@
-class Ingredients {
+class Recipes {
+  String recipeName() {
+    return 'Nudelsalat';
+  }
+
   String nudelsalatRecipe() {
     return '''
 400 g Nudeln, 
@@ -9,9 +13,7 @@ class Ingredients {
 1 TL italienische Kräuter 
 ''';
   }
-}
 
-class Directions {
   String nudelsalatDirection() {
     return '''Die Nudeln nach Packungsanweisung kochen 
     und unter kaltem Wasser abtropfen lassen. 
@@ -22,5 +24,11 @@ vermischen und zu den Nudeln geben. Mais, Erbsen,
 Gurken und die Fleischwurst zu den Nudeln fügen 
 und alle Zutaten miteinander vermengen.
 Dieser Nudelsalat muss nicht durchziehen.''';
+  }
+}
+
+class MockText {
+  String ratingSubText() {
+    return 'Bewerte das Gericht von Spieler 1. Vergib eine Punktzahl von 1 - 5 für die jeweiligen Kategorien.';
   }
 }

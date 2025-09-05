@@ -17,7 +17,7 @@ class AppTheme {
     bodyMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: headlineColor),
     bodySmall: TextStyle(fontSize: 20, color: headlineColor),
     labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: secondaryColor),
-    labelMedium: TextStyle(fontSize: 14, color: headlineColor),
+    labelMedium: TextStyle(fontSize: 16, color: headlineColor),
   );
 
   // ButtonStyle

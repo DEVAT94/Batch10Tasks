@@ -1,14 +1,34 @@
+import 'dart:async';
+
 import 'package:f_chefsarena/data/recipedata.dart';
 
-abstract class DatabaseRepository{
-  
-  Future <List<RecipeData>> get recipes;
+class MockRecipeDatabase {
+  final List<RecipeData> _recipes = [];
 
-  Future <RecipeData?> byId(String id);
+  // Alle Rezepte laden
+  Future<List<RecipeData>> getRecipes() async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    return List.unmodifiable(_recipes);
+  }
 
-  Future <RecipeData> create(RecipeData draft);
+  // Rezept hinzufügen
+  Future<void> addRecipe(RecipeData recipe) async {
+    await Future.delayed(const Duration(milliseconds: 200));
+    _recipes.add(recipe);
+  }
 
-  Future <void> update(RecipeData updated);
+  // Rezept löschen
+  Future<void> deleteRecipe(String id) async {
+    await Future.delayed(const Duration(milliseconds: 200));
+    _recipes.removeWhere((r) => r.id == id);
+  }
 
-  Future <void> delete(String id);
+  // Rezept aktualisieren
+  Future<void> updateRecipe(String id, RecipeData updated) async {
+    await Future.delayed(const Duration(milliseconds: 200));
+    final index = _recipes.indexWhere((r) => r.id == id);
+    if (index != -1) {
+      _recipes[index] = updated;
+    }
+  }
 }

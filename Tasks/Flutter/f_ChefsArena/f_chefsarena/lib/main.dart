@@ -1,10 +1,5 @@
 
-import 'package:f_chefsarena/features/friendlist.dart';
-import 'package:f_chefsarena/screens/Friends/friends.dart';
-import 'package:f_chefsarena/screens/Recipes/addrecipes.dart';
-import 'package:f_chefsarena/screens/duel/duel.dart';
 import 'package:f_chefsarena/screens/duel/rating.dart';
-import 'package:f_chefsarena/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {

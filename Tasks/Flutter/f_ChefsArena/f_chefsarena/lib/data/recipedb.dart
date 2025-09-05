@@ -1,45 +1,76 @@
-import 'package:f_chefsarena/data/ingredients.dart';
+import 'package:f_chefsarena/data/database_repo.dart';
+import 'package:f_chefsarena/data/mocktextdata.dart';
 import 'package:f_chefsarena/data/recipedata.dart';
+import 'package:flutter/material.dart';
 
-class Recipedb {
-  final List<RecipeData> _recipes = [
-    RecipeData(
-      id: '1',
-      name: 'Nudelsalat',
-      ingredients: Ingredients().nudelsalatRecipe(),
-      directions: Directions().nudelsalatDirection(),
-    ),
-    RecipeData(
-      id: '2',
-      name: 'Nudelsalat',
-      ingredients: Ingredients().nudelsalatRecipe(),
-      directions: Directions().nudelsalatDirection(),
-    ),
-    RecipeData(
-      id: '3',
-      name: 'Nudelsalat',
-      ingredients: Ingredients().nudelsalatRecipe(),
-      directions: Directions().nudelsalatDirection(),
-    ),
-  ];
+class RecipeApp extends StatefulWidget {
+  const RecipeApp({super.key});
 
-  int _idCounter = 3;
-  
-  List<RecipeData> get items => List.unmodifiable(_recipes);
+  @override
+  State<RecipeApp> createState() => _RecipeAppState();
+}
 
-  Future<RecipeData> create(RecipeData draft) async{
-    final created = draft.getRecipeData(id: (_idCounter++).toString());
-    _recipes.add(await created);
-    return created;
+class _RecipeAppState extends State<RecipeApp> {
+  final MockRecipeDatabase db = MockRecipeDatabase();
+
+  @override
+  void initState() {
+    super.initState();
+    db.addRecipe(
+      RecipeData(
+        id: "1",
+        name: Recipes().recipeName(),
+        ingredients: Recipes().nudelsalatRecipe(),
+        directions: Recipes().nudelsalatDirection(),
+      ),
+    );
+    db.addRecipe(
+      RecipeData(
+        id: "2",
+        name: Recipes().recipeName(),
+        ingredients: Recipes().nudelsalatRecipe(),
+        directions: Recipes().nudelsalatDirection(),
+      ),
+    );
   }
 
-  void update(RecipeData updated) {
-    final i = _recipes.indexWhere((p) => p.id == updated.id);
-    if (i == -1) return;
-    _recipes[i] = updated;
-  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Rezepte")),
+        body: FutureBuilder<List<RecipeData>>(
+          future: db.getRecipes(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text("Fehler: ${snapshot.error}"));
+            } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return const Center(child: Text("Keine Rezepte vorhanden"));
+            }
 
-  void delete(String id) {
-    _recipes.removeWhere((p) => p.id == id);
+            final recipes = snapshot.data!;
+            return ListView.builder(
+              itemCount: recipes.length,
+              itemBuilder: (context, index) {
+                final recipe = recipes[index];
+                return ListTile(
+                  title: Text(recipe.name),
+                  subtitle: Text(recipe.ingredients),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () async {
+                      await db.deleteRecipe(recipe.id);
+                      setState(() {});
+                    },
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 }
