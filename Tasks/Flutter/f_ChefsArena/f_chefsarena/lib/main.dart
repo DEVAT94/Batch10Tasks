@@ -1,4 +1,6 @@
 
+import 'package:f_chefsarena/screens/Recipes/addrecipes.dart';
+import 'package:f_chefsarena/screens/Recipes/recipes.dart';
 import 'package:f_chefsarena/screens/duel/rating.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Rating()
+      home: AddRecipes()
     );
   }
 }
