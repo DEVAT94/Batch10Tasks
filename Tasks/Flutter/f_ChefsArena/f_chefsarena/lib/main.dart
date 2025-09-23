@@ -1,10 +1,10 @@
-
-import 'package:f_chefsarena/screens/Recipes/addrecipes.dart';
-import 'package:f_chefsarena/screens/Recipes/recipes.dart';
-import 'package:f_chefsarena/screens/duel/rating.dart';
+import 'package:f_chefsarena/screens/login.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MainApp());
 }
 
@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AddRecipes()
+      home: LogIn()
     );
   }
 }
