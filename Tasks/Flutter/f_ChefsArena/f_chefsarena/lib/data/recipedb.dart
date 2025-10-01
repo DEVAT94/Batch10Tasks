@@ -1,5 +1,4 @@
 import 'package:f_chefsarena/data/database_repo.dart';
-import 'package:f_chefsarena/data/mocktextdata.dart';
 import 'package:f_chefsarena/data/recipedata.dart';
 import 'package:flutter/material.dart';
 
@@ -11,25 +10,17 @@ class RecipeApp extends StatefulWidget {
 }
 
 class _RecipeAppState extends State<RecipeApp> {
-  final MockRecipeDatabase db = MockRecipeDatabase();
+  final FirebaseRecipeDatabase db = FirebaseRecipeDatabase();
 
   @override
   void initState() {
     super.initState();
     db.addRecipe(
       RecipeData(
-        id: "1",
-        name: Recipes().recipeName(),
-        ingredients: Recipes().nudelsalatRecipe(),
-        directions: Recipes().nudelsalatDirection(),
-      ),
-    );
-    db.addRecipe(
-      RecipeData(
-        id: "2",
-        name: Recipes().recipeName(),
-        ingredients: Recipes().nudelsalatRecipe(),
-        directions: Recipes().nudelsalatDirection(),
+        id: "",
+        name: "Nudelsalat",
+        ingredients: "Nudeln, Mayo, Erbsen",
+        directions: "Alles mischen und kühlen.",
       ),
     );
   }
@@ -49,7 +40,6 @@ class _RecipeAppState extends State<RecipeApp> {
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
               return const Center(child: Text("Keine Rezepte vorhanden"));
             }
-
             final recipes = snapshot.data!;
             return ListView.builder(
               itemCount: recipes.length,

@@ -11,17 +11,20 @@ class RecipeData {
     required this.directions,
   });
 
-  RecipeData copyWith({
-    String? id,
-    String? name,
-    String? ingredients,
-    String? directions,
-  }) {
+  factory RecipeData.fromMap(Map<String, dynamic> map, String documentId) {
     return RecipeData(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      ingredients: ingredients ?? this.ingredients,
-      directions: directions ?? this.directions,
+      id: documentId,
+      name: map['name'] ?? '',
+      ingredients: map['ingredients'] ?? '',
+      directions: map['directions'] ?? '',
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'ingredients': ingredients,
+      'directions': directions,
+    };
   }
 }

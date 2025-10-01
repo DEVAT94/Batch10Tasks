@@ -1,34 +1,30 @@
-import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'recipedata.dart';
 
-import 'package:f_chefsarena/data/recipedata.dart';
-
-class MockRecipeDatabase {
-  final List<RecipeData> _recipes = [];
+class FirebaseRecipeDatabase {
+  final CollectionReference _recipesRef =
+      FirebaseFirestore.instance.collection('recipes');
 
   // Alle Rezepte laden
   Future<List<RecipeData>> getRecipes() async {
-    await Future.delayed(const Duration(milliseconds: 500));
-    return List.unmodifiable(_recipes);
+    final snapshot = await _recipesRef.get();
+    return snapshot.docs
+        .map((doc) => RecipeData.fromMap(doc.data() as Map<String, dynamic>, doc.id))
+        .toList();
   }
 
   // Rezept hinzufügen
   Future<void> addRecipe(RecipeData recipe) async {
-    await Future.delayed(const Duration(milliseconds: 200));
-    _recipes.add(recipe);
+    await _recipesRef.add(recipe.toMap());
   }
 
   // Rezept löschen
   Future<void> deleteRecipe(String id) async {
-    await Future.delayed(const Duration(milliseconds: 200));
-    _recipes.removeWhere((r) => r.id == id);
+    await _recipesRef.doc(id).delete();
   }
 
   // Rezept aktualisieren
   Future<void> updateRecipe(String id, RecipeData updated) async {
-    await Future.delayed(const Duration(milliseconds: 200));
-    final index = _recipes.indexWhere((r) => r.id == id);
-    if (index != -1) {
-      _recipes[index] = updated;
-    }
+    await _recipesRef.doc(id).update(updated.toMap());
   }
 }
