@@ -1,8 +1,9 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id("org.jetbrains.kotlin.android")
+    // Flutter Gradle Plugin
     id("dev.flutter.flutter-gradle-plugin")
+    // Google Services aktivieren (Version kommt aus Root-Gradle)
     id("com.google.gms.google-services")
 }
 

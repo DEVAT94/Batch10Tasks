@@ -10,7 +10,7 @@ class RecipeApp extends StatefulWidget {
 }
 
 class _RecipeAppState extends State<RecipeApp> {
-  final FirebaseRecipeDatabase db = FirebaseRecipeDatabase();
+  final FirebaseRecipeRepository db = FirebaseRecipeRepository();
 
   @override
   void initState() {
@@ -18,9 +18,9 @@ class _RecipeAppState extends State<RecipeApp> {
     db.addRecipe(
       RecipeData(
         id: "",
-        name: "Nudelsalat",
+        recipeName: "Nudelsalat",
         ingredients: "Nudeln, Mayo, Erbsen",
-        directions: "Alles mischen und kühlen.",
+        preparation: "Alles mischen und kühlen.",
       ),
     );
   }
@@ -46,7 +46,7 @@ class _RecipeAppState extends State<RecipeApp> {
               itemBuilder: (context, index) {
                 final recipe = recipes[index];
                 return ListTile(
-                  title: Text(recipe.name),
+                  title: Text(recipe.recipeName),
                   subtitle: Text(recipe.ingredients),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),

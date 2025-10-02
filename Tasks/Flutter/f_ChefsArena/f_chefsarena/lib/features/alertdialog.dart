@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:f_chefsarena/screens/Recipes/addrecipes.dart';
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -154,7 +155,11 @@ void showFinalDialog(BuildContext context) {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const AddRecipes(),
+                      ),
+                    );
                   },
                   child: Text(
                     'Rezept hochladen',

@@ -1,30 +1,43 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'recipedata.dart';
 
-class FirebaseRecipeDatabase {
-  final CollectionReference _recipesRef =
-      FirebaseFirestore.instance.collection('recipes');
+class FirebaseRecipeRepository {
+  final CollectionReference _recipeRef =
+      FirebaseFirestore.instance.collection('recipe');
 
-  // Alle Rezepte laden
   Future<List<RecipeData>> getRecipes() async {
-    final snapshot = await _recipesRef.get();
+    final snapshot = await _recipeRef.get();
     return snapshot.docs
         .map((doc) => RecipeData.fromMap(doc.data() as Map<String, dynamic>, doc.id))
         .toList();
   }
 
-  // Rezept hinzufügen
-  Future<void> addRecipe(RecipeData recipe) async {
-    await _recipesRef.add(recipe.toMap());
+  Future<RecipeData?> getRecipe(String id) async {
+    final doc = await _recipeRef.doc(id).get();
+    if (doc.exists) {
+      return RecipeData.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+    }
+    return null;
   }
 
-  // Rezept löschen
-  Future<void> deleteRecipe(String id) async {
-    await _recipesRef.doc(id).delete();
+  Future<String> addRecipe(RecipeData recipe) async {
+    final docRef = await _recipeRef.add(recipe.toMap());
+    return docRef.id;
   }
 
-  // Rezept aktualisieren
   Future<void> updateRecipe(String id, RecipeData updated) async {
-    await _recipesRef.doc(id).update(updated.toMap());
+    await _recipeRef.doc(id).update(updated.toMap());
+  }
+
+  Future<void> deleteRecipe(String id) async {
+    await _recipeRef.doc(id).delete();
+  }
+
+  Stream<List<RecipeData>> streamRecipes() {
+    return _recipeRef.snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) {
+        return RecipeData.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+      }).toList();
+    });
   }
 }
