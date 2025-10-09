@@ -2,13 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'recipedata.dart';
 
 class FirebaseRecipeRepository {
-  final CollectionReference _recipeRef =
+  final CollectionReference<Map<String, dynamic>> _recipeRef =
       FirebaseFirestore.instance.collection('recipe');
 
   Future<List<RecipeData>> getRecipes() async {
     final snapshot = await _recipeRef.get();
     return snapshot.docs
-        .map((doc) => RecipeData.fromMap(doc.data() as Map<String, dynamic>, doc.id))
+        .map((doc) => RecipeData.fromMap(doc.data(), doc.id))
         .toList();
   }
 
@@ -36,7 +36,7 @@ class FirebaseRecipeRepository {
   Stream<List<RecipeData>> streamRecipes() {
     return _recipeRef.snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
-        return RecipeData.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+        return RecipeData.fromMap(doc.data(), doc.id);
       }).toList();
     });
   }
