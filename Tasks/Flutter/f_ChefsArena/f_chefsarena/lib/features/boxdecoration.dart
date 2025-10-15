@@ -8,17 +8,16 @@ class CustomBoxDeco extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints:
-          const BoxConstraints.expand(), // ⬅️ Container füllt den Screen
+          const BoxConstraints.expand(),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 74, 74, 74),
             Colors.blueGrey,
             Color(0xFF8BC34A),
             Colors.yellowAccent,
             Colors.amber,
           ],
-          stops: [0.1, 0.3, 0.6, 0.8, 1],
+          stops: [0.1, 0.4, 0.8, 1],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

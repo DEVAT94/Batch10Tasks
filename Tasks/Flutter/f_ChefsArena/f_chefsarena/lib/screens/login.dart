@@ -97,6 +97,7 @@ class LoggedInOptions extends StatelessWidget {
               child: CustomElevatedButton(
                 onPressed: () async {
                   await FirebaseAuth.instance.signOut();
+                  // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text("Erfolgreich ausgeloggt")),
                   );

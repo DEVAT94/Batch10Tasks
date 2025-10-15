@@ -9,8 +9,6 @@ String? validateEmail(value) {
   return null;
 }
 
-// Beispiel der Verwendung der Funktion im UI
-// ignore: non_constant_identifier_names
 Widget emailTextFormField() {
   return TextFormField(
     decoration: InputDecoration(
@@ -29,8 +27,6 @@ String? validatePassword(value) {
   return null;
 }
 
-// Beispiel der Verwendung der Funktion im UI
-// ignore: non_constant_identifier_names
 Widget passwordTextFormField() {
   return TextFormField(
     decoration: InputDecoration(
@@ -46,12 +42,10 @@ String? validateUsername(value) {
       value.toString().contains('Sonderzeichen über Regex')) {
     return 'Der Name hat kein gültiges Format';
   } else if (value.toString() ==
-      value.toString() /*Vergleich mit den Einträgen aus der DB*/ ) {}
+      value.toString()) {}
   return null;
 }
 
-// Beispiel der Verwendung der Funktion im UI
-// ignore: non_constant_identifier_names
 Widget usernameTextFormField() {
   return TextFormField(
     decoration: InputDecoration(
