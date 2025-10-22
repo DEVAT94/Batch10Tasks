@@ -22,7 +22,7 @@ class CustomCard extends StatelessWidget {
     this.subTextDescription,
     this.subTextStyle,
     this.child,
-    this.backgroundColor = const Color.fromARGB(240, 74, 74, 74),
+    this.backgroundColor = const Color.fromARGB(150, 74, 74, 74),
     this.width = double.infinity,
     this.height,
     this.descriptionColor = Colors.amber,

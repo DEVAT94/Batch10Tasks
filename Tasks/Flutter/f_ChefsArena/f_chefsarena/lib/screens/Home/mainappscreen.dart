@@ -43,8 +43,8 @@ class _MainAppScreenState extends State<MainAppScreen> {
           tabBackgroundColor: const Color.fromARGB(150, 100, 100, 100),
           gap: 8,
           padding: const EdgeInsets.all(12),
-          tabs: const [
-            GButton(
+          tabs: [
+            const GButton(
               icon: Icons.add_home,
               text: 'Home',
               iconColor: Colors.white,
@@ -52,20 +52,20 @@ class _MainAppScreenState extends State<MainAppScreen> {
               textColor: Colors.white,
             ),
             GButton(
-              icon: Icons.cookie,
+              icon: Icons.whatshot,
               text: 'Duell',
               iconColor: Colors.white,
-              iconActiveColor: Color.fromARGB(255, 74, 195, 112),
+              iconActiveColor: const Color.fromARGB(255, 74, 195, 112),
               textColor: Colors.white,
             ),
-            GButton(
+            const GButton(
               icon: Icons.receipt_long_rounded,
               text: 'Rezepte',
               iconColor: Colors.white,
               iconActiveColor: Color.fromARGB(255, 74, 195, 112),
               textColor: Colors.white,
             ),
-            GButton(
+            const GButton(
               icon: Icons.group,
               text: 'Freunde',
               iconColor: Colors.white,

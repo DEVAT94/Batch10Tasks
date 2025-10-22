@@ -45,6 +45,11 @@ class CustomElevatedButton extends StatelessWidget {
                 iconColor: iconColor,
                 iconSize: iconSize,
                 elevation: elevation,
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
               ),
             )
           : ElevatedButton(
@@ -52,6 +57,11 @@ class CustomElevatedButton extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(backgroundColor),
                 elevation: elevation,
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
               ),
               child: Text(text, style: textStyle),
             ),

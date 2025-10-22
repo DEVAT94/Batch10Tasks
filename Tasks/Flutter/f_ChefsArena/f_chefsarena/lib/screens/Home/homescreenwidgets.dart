@@ -11,7 +11,7 @@ class ProfileCard extends StatelessWidget {
       height: 200,
       width: double.infinity,
       child: Card(
-        color: AppTheme.themeData.cardColor,
+        color: AppTheme.regularCardColor,
         elevation: 20,
         child: Padding(
           padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
