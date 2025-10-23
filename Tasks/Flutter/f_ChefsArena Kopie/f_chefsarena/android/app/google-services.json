@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "543638889276",
+    "project_id": "chefs-arena-ac09d",
+    "storage_bucket": "chefs-arena-ac09d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543638889276:android:d2c28b674dac0c58103439",
+        "android_client_info": {
+          "package_name": "com.example.f_chefsarena"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAitmSaKqgOmLbv4vLdym9L4Adv9_rvfKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
