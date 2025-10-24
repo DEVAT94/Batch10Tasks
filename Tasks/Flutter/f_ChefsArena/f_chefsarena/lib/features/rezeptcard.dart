@@ -1,14 +1,14 @@
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class RezeptCard extends StatelessWidget {
+class RecipeCard extends StatelessWidget {
   final String profilBild;
   final String name;
   final String kategorie;
   final String gerichtBild;
   final List<String> zutaten;
 
-  const RezeptCard({
+  const RecipeCard({
     super.key,
     required this.profilBild,
     required this.name,

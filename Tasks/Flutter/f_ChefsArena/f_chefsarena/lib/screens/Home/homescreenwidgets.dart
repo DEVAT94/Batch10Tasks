@@ -1,6 +1,7 @@
 import 'package:f_chefsarena/features/customcards.dart';
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/flutter_percent_indicator.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key});
@@ -34,25 +35,28 @@ class ProfileCard extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Name: Nico',
-                        style: AppTheme.textTheme.bodyMedium
-                      ),
+                      Text('Name: Nico', style: AppTheme.textTheme.bodyMedium),
                       Text(
                         'Rang: Hobbykoch',
-                        style: AppTheme.textTheme.bodyMedium
+                        style: AppTheme.textTheme.bodyMedium,
                       ),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
-              Text(
-                'Erfahrungspunkte: 50 XP',
-                textAlign: TextAlign.justify,
-                style: AppTheme.textTheme.labelLarge
+              const SizedBox(height: 40),
+              LinearPercentIndicator(
+                width: 340,
+                lineHeight: 20.0,
+                percent: 0.45,
+                backgroundColor: AppTheme.headlineColor,
+                progressColor: AppTheme.secondaryColor,
+                barRadius: Radius.circular(10),
+                center: Text(
+                  'Erfahrung: 45%',
+                  style: TextStyle(color: AppTheme.cardColor, fontWeight: FontWeight.bold),
+                ),
               ),
-              const LinearProgressIndicator(color: AppTheme.secondaryColor),
             ],
           ),
         ),
@@ -77,12 +81,9 @@ class ToDaysTopic extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text('Thema des Tages', style: AppTheme.textTheme.headlineLarge),
               Text(
-                'Thema des Tages',
-                style: AppTheme.textTheme.headlineLarge
-              ),
-              Text(
-                'Ein Sommergericht',
+                '>> Ein Sommergericht <<',
                 style: AppTheme.textTheme.bodySmall,
               ),
             ],
@@ -111,7 +112,7 @@ class StatsCard extends StatelessWidget {
               Center(
                 child: Text(
                   'Statistiken',
-                  style: AppTheme.textTheme.bodyMedium
+                  style: AppTheme.textTheme.bodyMedium,
                 ),
               ),
               const Divider(thickness: 2, color: AppTheme.secondaryColor),

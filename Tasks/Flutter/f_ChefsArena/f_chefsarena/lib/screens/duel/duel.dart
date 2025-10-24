@@ -15,7 +15,7 @@ class DuelMode extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: CustomAppBar(text: 'Zeit für ein Duell!'),
+        appBar: const CustomAppBar(text: 'Zeit für ein Duell'),
         body: CustomBoxDeco(
           child: SafeArea(
             child: Center(

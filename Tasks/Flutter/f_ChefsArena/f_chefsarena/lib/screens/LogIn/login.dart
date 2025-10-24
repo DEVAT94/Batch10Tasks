@@ -9,37 +9,44 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: false
-      ),
+      theme: ThemeData(useMaterial3: false),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: CustomBoxDeco(
-          child: Center(
-            child: SafeArea(
-              child: Column(
-                children: [
-                  const SizedBox(height: 128),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(400),
-                    child: Image.asset('assets/icons/chefsarena.png', scale: 5),
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: CustomBoxDeco(
+                  child: SafeArea(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 128),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(400),
+                          child: Image.asset(
+                            'assets/icons/chefsarena.png',
+                            scale: 5,
+                          ),
+                        ),
+                        const SizedBox(height: 64),
+                        Text(
+                          'Willkommen',
+                          textAlign: TextAlign.center,
+                          style: AppTheme.textTheme.bodyLarge,
+                        ),
+                        const SizedBox(height: 32),
+                        const AuthContent(),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 64),
-                  Text(
-                    'Willkommen',
-                    textAlign: TextAlign.center,
-                    style: AppTheme.textTheme.bodyLarge,
-                  ),
-                  const SizedBox(height: 32),
-                  const AuthContent(),
-                ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );
   }
 }
-
-

@@ -7,8 +7,10 @@ class CustomBoxDeco extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints:
-          const BoxConstraints.expand(),
+      width: double.infinity,
+      constraints: const BoxConstraints(
+        minWidth: double.infinity,
+      ),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
