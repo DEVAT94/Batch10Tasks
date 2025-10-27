@@ -1,4 +1,3 @@
-import 'package:f_chefsarena/features/customdrawer.dart';
 import 'package:f_chefsarena/screens/Home/homescreenwidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:f_chefsarena/features/cappbar.dart';
@@ -14,7 +13,6 @@ class HomeScreen extends StatelessWidget {
       home: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(text: 'HomeScreen'),
-        drawer: CustomDrawer(),
         body: CustomBoxDeco(
           child: SafeArea(
             child: SingleChildScrollView(

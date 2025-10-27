@@ -43,6 +43,14 @@ class BottomNavBarItems extends StatelessWidget {
           hoverColor: Colors.yellow,
           text: 'Freunde',
         ),
+        GButton(
+          icon: Icons.settings,
+          iconColor: Colors.white,
+          iconActiveColor: Color.fromARGB(255, 74, 195, 112),
+          textColor: Colors.white,
+          hoverColor: Colors.yellow,
+          text: 'Einstellungen',
+        ),
       ],
     );
   }

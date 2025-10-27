@@ -2,6 +2,7 @@ import 'package:f_chefsarena/screens/duel/duel.dart';
 import 'package:f_chefsarena/screens/Friends/friends.dart';
 import 'package:f_chefsarena/screens/Home/home.dart';
 import 'package:f_chefsarena/screens/Recipes/recipes.dart';
+import 'package:f_chefsarena/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -21,6 +22,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
     DuelMode(),
     RecipeScreen(),
     FriendScreen(),
+    SettingsScreen()
   ];
 
   @override
@@ -87,6 +89,13 @@ class _MainAppScreenState extends State<MainAppScreen> {
             GButton(
               icon: Icons.group,
               text: 'Freunde',
+              iconColor: Colors.white,
+              iconActiveColor: Color.fromARGB(255, 74, 195, 112),
+              textColor: Colors.white,
+            ),
+            GButton(
+              icon: Icons.settings,
+              text: 'Einstellungen',
               iconColor: Colors.white,
               iconActiveColor: Color.fromARGB(255, 74, 195, 112),
               textColor: Colors.white,
