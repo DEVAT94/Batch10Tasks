@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class RecipeText extends StatelessWidget {
   final String labelText;
+  final TextEditingController? controller;
   final TextStyle? style;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -16,6 +17,7 @@ class RecipeText extends StatelessWidget {
   const RecipeText({
     super.key,
     required this.labelText,
+    this.controller,
     this.style,
     this.textAlign = TextAlign.start,
     this.textAlignVertical,
@@ -36,6 +38,7 @@ class RecipeText extends StatelessWidget {
       expands: expands,
       textAlign: textAlign,
       textAlignVertical: textAlignVertical,
+      controller: controller,
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: AppTheme.textTheme.bodyMedium,

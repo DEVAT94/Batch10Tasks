@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:ui';
-import 'package:f_chefsarena/screens/Recipes/addrecipes.dart';
+import 'package:f_chefsarena/screens/duel/rating.dart';
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 void showCountdownDialog(BuildContext context, int durationMinutes, int round) {
   int remainingSeconds = durationMinutes * 60;
@@ -154,20 +156,19 @@ void showFinalDialog(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TextButton(
+                  style: ButtonStyle(
+                    foregroundColor: WidgetStateProperty.all<Color>(
+                      AppTheme.primaryColor,
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const AddRecipes(),
+                        builder: (context) => const RatingPlayerOne(),
                       ),
                     );
                   },
-                  child: Text(
-                    'Rezept hochladen',
-                    style: TextStyle(
-                      color: AppTheme.primaryColor,
-                      fontSize: 16,
-                    ),
-                  ),
+                  child: const Text('OK', style: TextStyle(fontSize: 20)),
                 ),
                 TextButton(
                   onPressed: () {

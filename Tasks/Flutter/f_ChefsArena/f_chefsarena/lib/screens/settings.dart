@@ -35,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
                   const Divider(),
                   ListTile(
                     leading: const Icon(Icons.screen_lock_landscape),
-                    title: const Text('Stay awake Mode'),
+                    title: const Text('Stay Awake Mode'),
                     trailing: Switch(value: false, onChanged: (_) {}),
                   ),
                   const Divider(),
