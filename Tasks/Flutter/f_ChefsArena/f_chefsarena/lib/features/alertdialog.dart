@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:ui';
 import 'package:f_chefsarena/screens/duel/rating.dart';
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 void showCountdownDialog(BuildContext context, int durationMinutes, int round) {
   int remainingSeconds = durationMinutes * 60;

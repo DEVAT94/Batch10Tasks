@@ -1,4 +1,4 @@
-import 'package:f_chefsarena/screens/Recipes/recipeprovider.dart';
+import 'package:f_chefsarena/data/recipedb.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:f_chefsarena/screens/LogIn/login.dart';
