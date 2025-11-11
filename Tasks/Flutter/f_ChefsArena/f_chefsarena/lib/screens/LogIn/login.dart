@@ -1,5 +1,5 @@
-import 'package:f_chefsarena/screens/LogIn/authcontent.dart';
 import 'package:f_chefsarena/features/boxdecoration.dart';
+import 'package:f_chefsarena/screens/LogIn/loginform.dart';
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +37,7 @@ class LogIn extends StatelessWidget {
                           style: AppTheme.textTheme.bodyLarge,
                         ),
                         const SizedBox(height: 32),
-                        const AuthContent(),
+                        const LoginForm(),
                       ],
                     ),
                   ),
