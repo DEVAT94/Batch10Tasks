@@ -26,7 +26,7 @@ class ProfileCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: const DecorationImage(
-                        image: AssetImage('assets/images/Nico.png'),
+                        image: AssetImage('assets/images/Me.jpg'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -35,7 +35,7 @@ class ProfileCard extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Name: Nico', style: AppTheme.textTheme.bodyMedium),
+                      Text('Name: Alex', style: AppTheme.textTheme.bodyMedium),
                       Text(
                         'Rang: Hobbykoch',
                         style: AppTheme.textTheme.bodyMedium,

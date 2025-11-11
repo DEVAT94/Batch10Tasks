@@ -3,12 +3,12 @@ import 'package:f_chefsarena/data/recipedb.dart';
 import 'package:f_chefsarena/features/boxdecoration.dart';
 import 'package:f_chefsarena/features/cappbar.dart';
 import 'package:f_chefsarena/features/celevatedbutton.dart';
+import 'package:f_chefsarena/screens/Home/mainappscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:provider/provider.dart';
 import 'package:f_chefsarena/features/recipetext.dart';
-import 'package:f_chefsarena/screens/duel/rating.dart';
 import 'package:f_chefsarena/theme/theme.dart';
 import 'package:f_chefsarena/data/recipedata.dart';
 
@@ -116,6 +116,7 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
 
     if (context.mounted) {
       Navigator.push(
+        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (_) => widget.nextScreen),
       );
@@ -202,7 +203,6 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
   }
 }
 
-/// Verwendung für Spieler 1:
 class AddRecipePlayerOne extends StatelessWidget {
   const AddRecipePlayerOne({super.key});
 
@@ -210,12 +210,11 @@ class AddRecipePlayerOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddRecipeScreen(
       playerName: 'Spieler 1',
-      nextScreen: const RatingPlayerOne(),
+      nextScreen: const AddRecipePlayerTwo(),
     );
   }
 }
 
-/// Verwendung für Spieler 2:
 class AddRecipePlayerTwo extends StatelessWidget {
   const AddRecipePlayerTwo({super.key});
 
@@ -223,7 +222,7 @@ class AddRecipePlayerTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddRecipeScreen(
       playerName: 'Spieler 2',
-      nextScreen: const RatingPlayerTwo(),
+      nextScreen: const MainAppScreen(),
     );
   }
 }
