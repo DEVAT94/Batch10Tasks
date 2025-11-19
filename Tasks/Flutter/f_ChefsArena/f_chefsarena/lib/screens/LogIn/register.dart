@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:f_chefsarena/data/userdata.dart';
 import 'package:f_chefsarena/features/celevatedbutton.dart';
 import 'package:f_chefsarena/screens/Home/mainappscreen.dart';
 import 'package:f_chefsarena/features/boxdecoration.dart';
@@ -17,20 +19,57 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _repeatPasswordController = TextEditingController();
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+
+  bool _isLoading = false;
 
   Future<void> _register() async {
     if (_passwordController.text != _repeatPasswordController.text) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Passwörter stimmen nicht überein")),
+        const SnackBar(content: Text("Passwörter stimmen nicht überein.")),
       );
       return;
     }
 
-    try {
-      await _auth.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
+    if (_emailController.text.isEmpty ||
+        _passwordController.text.isEmpty ||
+        _firstNameController.text.isEmpty ||
+        _lastNameController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Bitte alle Felder ausfüllen.")),
       );
+      return;
+    }
+
+    setState(() => _isLoading = true);
+
+    try {
+      final result = await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      final user = result.user;
+      if (user != null) {
+        // 🔹 UserData erstellen
+        final newUser = UserData(
+          uid: user.uid,
+          firstName: _firstNameController.text.trim(),
+          lastName: _lastNameController.text.trim(),
+          email: user.email ?? '',
+          title: 'Hobbykoch', // Standardtitel
+          rank: 1,
+          xp: 0,
+        );
+
+        // 🔹 In Firestore speichern
+        await FirebaseFirestore.instance
+            .collection('user')
+            .doc(user.uid)
+            .set(newUser.toMap());
+      }
+
       if (mounted) {
         Navigator.pushReplacement(
           context,
@@ -41,6 +80,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Registrierung fehlgeschlagen: ${e.message}")),
       );
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
@@ -57,6 +98,54 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(height: 64),
                 Text('Registrieren', style: AppTheme.textTheme.bodyLarge),
                 const SizedBox(height: 32),
+
+                // 🔹 Vorname
+                TextField(
+                  controller: _firstNameController,
+                  cursorColor: AppTheme.cardColor,
+                  decoration: const InputDecoration(
+                    labelText: 'Vorname',
+                    labelStyle: TextStyle(color: AppTheme.cardColor),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppTheme.cardColor,
+                        width: 2,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppTheme.cardColor,
+                        width: 2,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // 🔹 Nachname
+                TextField(
+                  controller: _lastNameController,
+                  cursorColor: AppTheme.cardColor,
+                  decoration: const InputDecoration(
+                    labelText: 'Nachname',
+                    labelStyle: TextStyle(color: AppTheme.cardColor),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppTheme.cardColor,
+                        width: 2,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: AppTheme.cardColor,
+                        width: 2,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // 🔹 Email
                 TextField(
                   controller: _emailController,
                   cursorColor: AppTheme.cardColor,
@@ -75,21 +164,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: 2,
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppTheme.cardColor,
-                        width: 2,
-                      ),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppTheme.cardColor,
-                        width: 2,
-                      ),
-                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
+
+                // 🔹 Passwort
                 TextField(
                   obscureText: true,
                   controller: _passwordController,
@@ -109,21 +188,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: 2,
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppTheme.cardColor,
-                        width: 2,
-                      ),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppTheme.cardColor,
-                        width: 2,
-                      ),
-                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
+
+                // 🔹 Passwort wiederholen
                 TextField(
                   obscureText: true,
                   controller: _repeatPasswordController,
@@ -143,30 +212,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         width: 2,
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppTheme.cardColor,
-                        width: 2,
-                      ),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppTheme.regularCardColor,
-                        width: 2,
-                      ),
-                    ),
                   ),
                 ),
+
                 const SizedBox(height: 24),
-                CustomElevatedButton(
-                  onPressed: _register,
-                  text: 'Registrieren',
-                  width: 400,
-                  icon: const Icon(Icons.app_registration, color: AppTheme.secondaryColor,),
-                  backgroundColor: AppTheme.cardColor,
-                  textStyle: AppTheme.textTheme.bodySmall,
-                ),
+
+                // 🔹 Button
+                _isLoading
+                    ? const CircularProgressIndicator(color: AppTheme.cardColor)
+                    : CustomElevatedButton(
+                        onPressed: _register,
+                        text: 'Registrieren',
+                        width: 400,
+                        icon: const Icon(
+                          Icons.app_registration,
+                          color: AppTheme.secondaryColor,
+                        ),
+                        backgroundColor: AppTheme.cardColor,
+                        textStyle: AppTheme.textTheme.bodySmall,
+                      ),
+
                 const SizedBox(height: 12),
+
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
